@@ -82,3 +82,64 @@ body {
   font-size: clamp(1.1rem, 1.4vw, 1.4rem);
   color: var(--muted);
 }
+
+.section-tag {
+  display: inline-flex;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  color: var(--hero-accent);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  margin-bottom: 1.25rem;
+}
+
+.about .section-tag {
+  color: var(--about-accent);
+}
+
+.section-tag-close {
+  display: inline-flex;
+  margin-top: 2rem;
+}
+
+.section-inner {
+  max-width: 900px;
+}
+
+.about .section-inner {
+  padding-left: clamp(1rem, 5vw, 3rem);
+}
+
+.section p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.about-block-label {
+  display: block;
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--about-accent);
+  margin-bottom: 0.5rem;
+}
+
+.about-block p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+@media (min-width: 700px) {
+  .about-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
