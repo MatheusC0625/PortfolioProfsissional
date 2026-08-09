@@ -143,3 +143,42 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.projects .section-inner {
+  padding-left: clamp(1rem, 5vw, 3rem);
+}
+
+.projects .section-tag {
+  color: var(--projects-accent);
+}
+
+.project-placeholder {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.project-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card.empty {
+  color: var(--muted);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-status {
+  color: var(--projects-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
