@@ -330,3 +330,36 @@ body {
     transition: none;
   }
 }
+
+:root {
+  color-scheme: light;
+  --bg: #FFFFFF;
+  --surface: #F7F8F9;
+  --text: #16181B;
+  --muted: #5B6169;
+  --border: rgba(15, 23, 32, 0.1);
+
+  --hero-accent: #C2660A;
+  --about-accent: #16824A;
+  --contact-accent: #1668A0;
+  --projects-accent: #B23856;
+}
+
+[data-theme="gray"] {
+  --bg: #ECEDEF;
+  --surface: #F7F8F9;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1E1E1E;
+  --surface: #282828;
+  --text: #F2F1EF;
+  --muted: #A3A29E;
+  --border: rgba(255, 255, 255, 0.12);
+
+  --hero-accent: #F0913D;
+  --about-accent: #34D399;
+  --contact-accent: #4CC2FA;
+  --projects-accent: #FB7C97;
+}
