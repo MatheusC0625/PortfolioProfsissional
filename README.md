@@ -11,7 +11,6 @@ Tecnologias
 - HTML
 - CSS
 - JavaScript
-- Canvas API
 
 Funcionalidades
 
