@@ -132,38 +132,118 @@ body {
   padding-left: clamp(1rem, 5vw, 3rem);
 }
 
+.about .section-inner {
+  max-width: 1080px;
+}
+
 .section p {
   color: var(--muted);
   line-height: 1.8;
 }
 
-.about-grid {
+.about-columns {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem 2.5rem;
+  gap: 2.5rem;
+  align-items: center;
   margin-top: 0.5rem;
 }
 
-.about-block-label {
-  display: block;
+@media (min-width: 860px) {
+  .about-columns {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 4rem;
+  }
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.about-lede {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--about-accent);
+  font-style: italic;
+}
+
+.about-text p:not(.about-lede) {
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.resume-btn {
+  align-self: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid var(--about-accent);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.resume-btn-label {
   font-family: "Fira Code", "Courier New", Courier, monospace;
   font-size: 0.78rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--about-accent);
-  margin-bottom: 0.5rem;
 }
 
-.about-block p {
-  margin: 0;
+.resume-btn-action {
+  font-weight: 600;
   font-size: 0.98rem;
-  line-height: 1.7;
 }
 
-@media (min-width: 700px) {
-  .about-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.resume-btn:hover,
+.resume-btn:focus-visible {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--about-accent) 10%, transparent);
+  box-shadow: 0 14px 26px -18px color-mix(in srgb, var(--about-accent) 55%, transparent);
+}
+
+.resume-btn:focus-visible {
+  outline: 2px solid var(--about-accent);
+  outline-offset: 3px;
+}
+
+.about-photo {
+  position: relative;
+  max-width: 360px;
+  margin-inline: auto;
+}
+
+.about-photo-accent {
+  position: absolute;
+  inset: 18px -18px -18px 18px;
+  border: 2px solid var(--hero-accent);
+  border-radius: 22px;
+  z-index: 0;
+}
+
+.about-photo-frame {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 44px -30px rgba(0, 0, 0, 0.5);
+}
+
+.about-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project-placeholder {
