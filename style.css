@@ -513,6 +513,14 @@ body {
   border-color: var(--projects-accent);
 }
 
+.contact-card--copied {
+  border-color: var(--projects-accent);
+}
+
+.contact-card--copied .contact-platform {
+  color: var(--projects-accent);
+}
+
 .contact-body {
   display: flex;
   flex-direction: column;

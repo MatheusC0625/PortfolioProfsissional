@@ -1,6 +1,41 @@
 document.addEventListener('DOMContentLoaded', () => {
   initHeroCanvas();
+  initEmailCopy();
 });
+
+function initEmailCopy() {
+  const emailCard = document.querySelector('.contact-card--email');
+  if (!emailCard) return;
+
+  const platformLabel = emailCard.querySelector('.contact-platform');
+  const originalLabel = platformLabel.textContent;
+  const email = emailCard.getAttribute('href').replace('mailto:', '');
+  let resetTimer;
+
+  emailCard.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+    } catch {
+      const helper = document.createElement('textarea');
+      helper.value = email;
+      helper.style.position = 'fixed';
+      helper.style.opacity = '0';
+      document.body.appendChild(helper);
+      helper.select();
+      document.execCommand('copy');
+      document.body.removeChild(helper);
+    }
+
+    platformLabel.textContent = 'E-mail copiado!';
+    emailCard.classList.add('contact-card--copied');
+
+    clearTimeout(resetTimer);
+    resetTimer = setTimeout(() => {
+      platformLabel.textContent = originalLabel;
+      emailCard.classList.remove('contact-card--copied');
+    }, 1800);
+  });
+}
 
 function initHeroCanvas() {
   const canvas = document.getElementById('heroCanvas');
