@@ -254,6 +254,7 @@ body {
 }
 
 .project-row {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -262,6 +263,34 @@ body {
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 1.25rem 1.5rem;
+}
+
+.project-preview {
+  position: absolute;
+  top: calc(100% + 0.75rem);
+  right: 0;
+  z-index: 20;
+  width: 380px;
+  max-width: 90vw;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.project-row:hover .project-preview,
+.project-row:focus-within .project-preview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 860px) {
+  .project-preview {
+    display: none;
+  }
 }
 
 .project-row--placeholder {
