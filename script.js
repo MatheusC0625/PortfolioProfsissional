@@ -1,7 +1,43 @@
 document.addEventListener('DOMContentLoaded', () => {
   initHeroCanvas();
   initEmailCopy();
+  initProjectPreview();
 });
+
+function initProjectPreview() {
+  const OFFSET_X = 24;
+  const OFFSET_Y = 24;
+  const EDGE_MARGIN = 16;
+
+  document.querySelectorAll('.project-row').forEach((row) => {
+    const preview = row.querySelector('.project-preview');
+    if (!preview) return;
+
+    const move = (event) => {
+      const rect = preview.getBoundingClientRect();
+      let x = event.clientX + OFFSET_X;
+      let y = event.clientY + OFFSET_Y;
+
+      if (x + rect.width > window.innerWidth - EDGE_MARGIN) {
+        x = event.clientX - rect.width - OFFSET_X;
+      }
+      if (y + rect.height > window.innerHeight - EDGE_MARGIN) {
+        y = event.clientY - rect.height - OFFSET_Y;
+      }
+
+      preview.style.transform = `translate(${x}px, ${y}px)`;
+    };
+
+    row.addEventListener('mouseenter', (event) => {
+      preview.classList.add('is-visible');
+      move(event);
+    });
+    row.addEventListener('mousemove', move);
+    row.addEventListener('mouseleave', () => {
+      preview.classList.remove('is-visible');
+    });
+  });
+}
 
 function initEmailCopy() {
   const emailCard = document.querySelector('.contact-card--email');
