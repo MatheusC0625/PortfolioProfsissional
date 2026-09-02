@@ -246,46 +246,45 @@ body {
   display: block;
 }
 
-.project-placeholder {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+.project-list {
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   margin-top: 1.5rem;
 }
 
-.project-card {
+.project-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 1.25rem;
-  min-height: 120px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
 }
 
-.project-card.empty {
+.project-row--placeholder {
   color: var(--muted);
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  font-size: 0.9rem;
+}
+
+.project-row--placeholder p {
+  margin: 0;
+}
+
+.project-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
 }
 
 .project-status {
   color: var(--projects-accent);
   font-size: 0.85rem;
   font-weight: 600;
-}
-
-.project-card--featured {
-  grid-column: 1 / -1;
-  gap: 1.25rem;
-}
-
-.project-card-top {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 }
 
 .project-status--live {
@@ -321,6 +320,7 @@ body {
 .project-links {
   display: flex;
   flex-wrap: wrap;
+  flex-shrink: 0;
   gap: 0.75rem;
 }
 
@@ -552,8 +552,9 @@ body {
     gap: 4.5rem;
   }
 
-  .project-placeholder {
-    grid-template-columns: 1fr;
+  .project-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
