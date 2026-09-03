@@ -398,6 +398,13 @@ body {
   border-color: var(--projects-accent);
 }
 
+.courses-count {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--courses-accent);
+}
+
 .course-groups {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
