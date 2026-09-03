@@ -10,6 +10,7 @@
   --about-accent: #16824A;
   --contact-accent: #1668A0;
   --projects-accent: #B23856;
+  --courses-accent: #6E3ADB;
 }
 
 * {
@@ -117,6 +118,10 @@ body {
   color: var(--contact-accent);
 }
 
+.courses .section-tag {
+  color: var(--courses-accent);
+}
+
 .section-tag-close {
   display: inline-flex;
   margin-top: 2rem;
@@ -128,7 +133,8 @@ body {
 
 .about .section-inner,
 .projects .section-inner,
-.contact .section-inner {
+.contact .section-inner,
+.courses .section-inner {
   padding-left: clamp(1rem, 5vw, 3rem);
 }
 
@@ -392,6 +398,60 @@ body {
   border-color: var(--projects-accent);
 }
 
+.course-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.course-group {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+}
+
+.course-group-title {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  color: var(--courses-accent);
+}
+
+.course-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.course-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.course-profile-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+  color: var(--courses-accent);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.course-profile-link:hover,
+.course-profile-link:focus-visible {
+  border-color: var(--courses-accent);
+}
+
 .tech-bgword {
   position: absolute;
   top: 50%;
@@ -595,6 +655,7 @@ body {
   --about-accent: #34D399;
   --contact-accent: #4CC2FA;
   --projects-accent: #FB7C97;
+  --courses-accent: #B794F6;
 }
 
 @media (max-width: 860px) {
