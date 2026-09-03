@@ -406,43 +406,115 @@ body {
 }
 
 .course-groups {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
   margin-top: 1.5rem;
 }
 
-.course-group {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1.25rem 1.5rem;
-}
-
 .course-group-title {
-  margin: 0 0 0.85rem;
+  margin: 0 0 1rem;
   font-size: 0.95rem;
   color: var(--courses-accent);
 }
 
-.course-group-count {
-  font-weight: 400;
-  color: var(--muted);
+.course-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
-.course-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.course-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  overflow: hidden;
 }
 
-.course-list li {
-  font-size: 0.88rem;
-  line-height: 1.5;
+.course-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: var(--contact-accent);
+}
+
+.course-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.course-card-platform {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.75rem;
   color: var(--muted);
+}
+
+.course-card-hours {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--contact-accent);
+  border: 1px solid var(--contact-accent);
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+}
+
+.course-card-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.course-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.course-card-tag {
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  color: var(--courses-accent);
+  background: color-mix(in srgb, var(--courses-accent) 10%, transparent);
+  border: 1px solid var(--courses-accent);
+  border-radius: 6px;
+  padding: 0.15rem 0.5rem;
+}
+
+.course-card-cert {
+  align-self: flex-end;
+  margin-top: auto;
+  padding-top: 0.75rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.3rem;
+  border-top: 1px solid var(--border);
+  font-family: "Fira Code", "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.course-card-cert:hover,
+.course-card-cert:focus-visible {
+  color: var(--contact-accent);
 }
 
 .course-profile-link {
