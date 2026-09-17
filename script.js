@@ -2,7 +2,32 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeroCanvas();
   initEmailCopy();
   initProjectPreview();
+  initNavbar();
 });
+
+function initNavbar() {
+  const links = document.querySelectorAll('.navbar-link');
+  const sections = Array.from(links)
+    .map((link) => document.getElementById(link.dataset.nav))
+    .filter(Boolean);
+
+  if (!sections.length) return;
+
+  const setActive = (id) => {
+    links.forEach((link) => link.classList.toggle('is-active', link.dataset.nav === id));
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      });
+    },
+    { rootMargin: '-45% 0px -50% 0px', threshold: 0 },
+  );
+
+  sections.forEach((section) => observer.observe(section));
+}
 
 function initProjectPreview() {
   const OFFSET_X = 24;
