@@ -27,6 +27,18 @@ function initNavbar() {
   );
 
   sections.forEach((section) => observer.observe(section));
+
+  // A última seção pode nunca cruzar a faixa de detecção acima: se a página
+  // não tiver espaço de rolagem sobrando depois dela, o topo dela para antes
+  // de alcançar a faixa. Perto do fim da página, força o link da última
+  // seção a ficar ativo.
+  const lastSectionId = sections[sections.length - 1].id;
+  const checkScrollEnd = () => {
+    const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+    if (atBottom) setActive(lastSectionId);
+  };
+  window.addEventListener('scroll', checkScrollEnd, { passive: true });
+  checkScrollEnd();
 }
 
 function initProjectPreview() {

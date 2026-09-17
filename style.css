@@ -119,6 +119,7 @@ body {
   font-size: clamp(2rem, 5vw, 3rem);
   line-height: 1.1;
   margin: 0;
+  overflow-wrap: break-word;
 }
 
 .code-call {
